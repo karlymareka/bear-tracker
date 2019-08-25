@@ -1,23 +1,41 @@
+<h1> Tag New Bear </h1>
 <form action="/bears/new" method="post">
 
   <h2>Name: <input id="name" type="text" name='name'></h2>
 
-  <h2>Username: <input id="username" type="text" name='username'></h2>
-
-  <h2>Password: <input id="password" type="text" name='password'></h2>
-
   <h2>
-    <label> Park: </label>
+    <label> Sex: </label>
   </h2>
   <p>
-    <input type="radio" name="park" id="yellowstone"
-      value="Yellowstone National Park"> Yellowstone National Park <br>
-    <input type="radio" name="park" id="glacier"
-      value="Glacier National Park"> Glacier National Park <br>
-    <input type="radio" name="park" id="north_cascades"
-      value="North Cascades National Park"> North Cascades National Park
+    <input type="radio" name='sex' value='male'> Male <br>
+    <input type="radio" name='sex' value='female without cubs'> Female without cubs <br>
+    <input type="radio" name='sex' value='female with cub(s)'> Female with cubs <br>
   </p>
 
-  <input id="create_ranger" value="Create Ranger" type="submit">
+  <h2>Age: <input id="age" type="text" name='age'></h2>
+
+  <h2>
+    <label> Health Status: </label>
+  </h2>
+  <p>
+    <input type="radio" name="health_status" id="healthy"
+      value="healthy"> Healthy <br>
+    <input type="radio" name="health_status" id="fair"
+      value="fair"> Fair <br>
+    <input type="radio" name="health_status" id="sick_underweight"
+      value="sick_underweight"> Sick or Underweight
+  </p>
+
+  <h2>
+    <label> Habituation Status: </label>
+  </h2>
+  <p>
+    <input type="radio" name="habituation_status" id="no"
+      value="no"> No signs of habituation to people <br>
+    <input type="radio" name="habituation_status" id="yes"
+      value="yes"> Signs of habituation or aggression to people <br>
+  </p>
+
+  <input id="create_bear" value="Create Bear" type="submit">
 
 </form>

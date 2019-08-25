@@ -6,7 +6,7 @@ class BearsController < ApplicationController
   end
 
   get '/bears/new' do
-    erb :'/bears/new.erb'
+    erb :'/bears/new'
   end
 
 end
