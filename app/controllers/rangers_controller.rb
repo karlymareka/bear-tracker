@@ -9,7 +9,6 @@ class RangersController < ApplicationController
 
   get '/signup' do
       erb :'/rangers/create_ranger'
-
   end
 
   post '/signup' do
@@ -18,7 +17,16 @@ class RangersController < ApplicationController
       :password_digest => params[:password])
     @park = Park.find_by(name: params[:park])
     @ranger.park_id = @park.id
+    session[:user_id] = @ranger.id
     redirect '/bears'
   end
+
+  get '/login' do
+    erb :'/rangers/login'
+  end
+
+  post '/login' do
+
+  end 
 
 end

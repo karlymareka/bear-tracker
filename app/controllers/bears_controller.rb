@@ -6,7 +6,11 @@ class BearsController < ApplicationController
   end
 
   get '/bears/new' do
-    erb :'/bears/new'
+    if session[user_id] == nil
+      redirect to '/login'
+    else
+      erb :'/bears/new'
+    end 
   end
 
   post '/bears/new' do
@@ -14,8 +18,8 @@ class BearsController < ApplicationController
       :sex => params[:sex],
       :age => params[:age],
       :health_status => params[:health_status],
-      :habituation_status => params[:habituation_status])
-    
+      :habituation_status => params[:habituation_status],
+      :ranger_id => session[user_id])
   end
 
 end
