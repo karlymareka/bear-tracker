@@ -5,4 +5,8 @@ class BearsController < ApplicationController
       erb :'/bears/index'
   end
 
-end 
+  get '/bears/new' do
+    erb :'/bears/new.erb'
+  end
+
+end

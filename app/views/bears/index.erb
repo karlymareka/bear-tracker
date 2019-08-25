@@ -1,3 +1,12 @@
-<% @bears.each do |bear| %>
-  <%= bear.name %>
-<% end %>
+<h2> Currently tagged bears: </h2>
+  <% if @bears.length < 1 %>
+    You have not tagged any bears yet.
+  <% else %>
+    <% @bears.each do |bear| %>
+      <%= bear.name %>
+    <% end %>
+  <% end %>
+
+<p>
+<a href="/bears/new"> Tag New Bear</a>
+</p>
