@@ -8,7 +8,11 @@ class RangersController < ApplicationController
   end
 
   get '/signup' do
+    if session[:user_id] == nil
       erb :'/rangers/create_ranger'
+    else
+      redirect '/bears'
+    end
   end
 
   post '/signup' do
@@ -22,11 +26,28 @@ class RangersController < ApplicationController
   end
 
   get '/login' do
-    erb :'/rangers/login'
+    if session[:user_id] == nil
+     erb :'/rangers/login'
+   else
+     redirect to '/bears'
+   end
   end
 
   post '/login' do
+    @ranger = Ranger.find_by(username: params[:username])
+    if @ranger
+      session[:user_id] = @ranger.id
+      redirect to '/bears'
+    else
+     redirect to '/login'
+    end
+  end
 
-  end 
+  get '/logout' do
+    if session[:user_id] != nil
+      session.clear
+    end
+      redirect '/login'
+  end
 
 end
