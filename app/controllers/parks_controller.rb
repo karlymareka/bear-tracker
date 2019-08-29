@@ -1,8 +1,8 @@
 class ParksController < ApplicationController
 
   get '/parks' do
-      @parks = Bear.all
+      @parks = Park.all
       erb :'/parks/index'
   end
 
-end 
+end

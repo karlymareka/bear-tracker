@@ -1,3 +1,4 @@
-<% @parks.each do |park| %>
-  <%= park.name %>
+<h1> National Parks: </h1>
+<% @parks.each.with_index(1) do |park, index| %>
+  <p> <%= index %>. <%= park.name %>, <%= park.state %> </p>
 <% end %>
