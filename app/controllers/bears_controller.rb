@@ -6,10 +6,10 @@ class BearsController < ApplicationController
   end
 
   get '/bears/new' do
-    if session[:user_id] == nil
-      redirect to '/login'
-    else
+    if ApplicationController.is_logged_in?
       erb :'/bears/new'
+    else
+      redirect '/login'
     end
   end
 
@@ -24,12 +24,12 @@ class BearsController < ApplicationController
   end
 
   get '/bears/:id' do
-   if session[:user_id] == nil
-     redirect to '/login'
-   else
+   if ApplicationController.is_logged_in?
      @bear = Bear.find(params[:id])
      @ranger = Ranger.find(@bear.ranger_id)
      erb :'/bears/show'
+   else
+    redirect '/login'
    end
  end
 

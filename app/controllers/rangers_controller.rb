@@ -2,16 +2,11 @@ require 'pry'
 
 class RangersController < ApplicationController
 
-  get '/rangers' do
-      @rangers = Ranger.all
-      erb :'/rangers/index'
-  end
-
   get '/signup' do
-    if session[:user_id] == nil
-      erb :'/rangers/create_ranger'
-    else
+    if ApplicationController.is_logged_in?
       redirect '/bears'
+    else
+      erb :'/rangers/create_ranger'
     end
   end
 
@@ -21,14 +16,15 @@ class RangersController < ApplicationController
       :password_digest => params[:password])
     @park = Park.find_by(name: params[:park])
     @ranger.park_id = @park.id
+    @ranger.save
     session[:user_id] = @ranger.id
     redirect '/bears'
   end
 
   get '/login' do
-    if session[:user_id] == nil
+    if ApplicationController.is_logged_in?
      erb :'/rangers/login'
-   else
+    else
      redirect to '/bears'
    end
   end
@@ -44,7 +40,7 @@ class RangersController < ApplicationController
   end
 
   get '/logout' do
-    if session[:user_id] != nil
+    if ApplicationController.is_logged_in?
       session.clear
     end
       redirect '/login'

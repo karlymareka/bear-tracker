@@ -10,7 +10,19 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    "Welcome to the National Park bear tracker system!"
+    erb :'/index'
+  end
+
+  def self.current_user
+    Ranger.find(session[:user_id])
+  end
+
+  def self.is_logged_in?
+    if session[:user_id] != nil
+      true
+    else
+      false
+    end
   end
 
 end

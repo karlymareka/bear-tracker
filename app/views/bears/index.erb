@@ -3,7 +3,17 @@
     You have not tagged any bears yet.
   <% else %>
     <% @bears.each do |bear| %>
-      <%= bear.name %>
+      <p>
+        <b>Bear Name: </b> <%=bear.name%>
+      <br>
+        <b>Bear Location: </b>
+        <% if bear.ranger_id != nil
+            ranger = Ranger.find(bear.ranger_id) %>
+            <%= Park.find(ranger.park_id).name %>
+        <% end %>
+      <br>
+        <b>Bear ID: </b> <%= bear.id %>
+      </p>
     <% end %>
   <% end %>
 
