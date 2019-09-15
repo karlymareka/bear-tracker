@@ -3,6 +3,78 @@
 <form action="/bears/<%= @bear.id %>" method="POST"> 
   <input type="hidden" name="_method" value="PATCH">
 
-  <label for="name">Name</label> 
-  <input type="text" name="bear[name]" id="name"
-  value="<%= @bear.name %>">
+  <h2>
+    <label for="name">Name:</label> 
+    <input type="text" name="bear[name]" id="name"
+    value="<%= @bear.name %>">
+  </h2>
+
+  <h2>
+    <label> Sex: </label>
+  </h2>
+  <p>
+    <input type="radio" name='sex' value='male'
+      <% if @bear.sex == "male" %>
+        checked
+      <% end %>
+    > Male <br>
+    <input type="radio" name='sex' value='female without cubs'
+      <% if @bear.sex == "female without cubs" %>
+        checked
+      <% end %>
+    > Female without cubs <br>
+    <input type="radio" name='sex' value='female with cub(s)'
+      <% if @bear.sex == "female with cub(s)" %>
+      checked
+      <% end %>
+    > Female with cub(s) <br>
+  </p>
+
+  <h2>Age: <input id="age" type="text" name="age"
+    value="<%= @bear.age %>"></h2>
+
+  <h2>
+    <label> Health Status: </label>
+  </h2>
+  <p>
+    <input type="radio" name="health_status" id="healthy"
+      value="healthy"
+      <% if @bear.health_status == "healthy" %>
+      checked
+      <% end %>
+    > Healthy <br>
+    <input type="radio" name="health_status" id="fair"
+      value="fair"
+      <% if @bear.health_status == "fair" %>
+      checked
+      <% end %>
+    > Fair <br>
+    <input type="radio" name="health_status" id="sick_underweight"
+      value="sick_underweight"
+      <% if @bear.health_status == "sick_underweight" %>
+      checked
+      <% end %>
+    > Sick or Underweight
+  </p>
+
+  <h2>
+    <label> Habituation Status: </label>
+  </h2>
+  <p>
+    <input type="radio" name="habituation_status" id="no"
+      value="no"
+      <% if @bear.habituation_status == "no" %>
+      checked
+      <% end %>
+    > No signs of habituation to people <br>
+    <input type="radio" name="habituation_status" id="yes"
+      value="yes"
+      <% if @bear.habituation_status == "yes" %>
+      checked
+      <% end %>
+    > Signs of habituation or aggression to people <br>
+  </p>
+
+  <input id="edit_bear" value="Edit Bear" type="submit">
+
+</form>
