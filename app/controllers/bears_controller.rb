@@ -6,7 +6,7 @@ class BearsController < ApplicationController
   end
 
   get '/bears/new' do
-    if ApplicationController.is_logged_in?
+    if logged_in?
       erb :'/bears/new'
     else
       redirect '/login'
@@ -24,7 +24,7 @@ class BearsController < ApplicationController
   end
 
   get '/bears/:id' do
-   if ApplicationController.is_logged_in?
+   if logged_in?
      @bear = Bear.find(params[:id])
      @ranger = Ranger.find(@bear.ranger_id)
      erb :'/bears/show'

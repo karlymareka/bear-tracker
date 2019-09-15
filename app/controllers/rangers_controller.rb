@@ -3,7 +3,7 @@ require 'pry'
 class RangersController < ApplicationController
 
   get '/signup' do
-    if ApplicationController.is_logged_in?
+    if logged_in?
       redirect '/bears'
     else
       erb :'/rangers/create_ranger'
@@ -22,11 +22,11 @@ class RangersController < ApplicationController
   end
 
   get '/login' do
-    if ApplicationController.is_logged_in?
-     erb :'/rangers/login'
+    if logged_in?
+      redirect to '/bears'
     else
-     redirect to '/bears'
-   end
+      erb :'/rangers/login'
+    end
   end
 
   post '/login' do
@@ -40,7 +40,7 @@ class RangersController < ApplicationController
   end
 
   get '/logout' do
-    if ApplicationController.is_logged_in?
+    if logged_in?
       session.clear
     end
       redirect '/login'

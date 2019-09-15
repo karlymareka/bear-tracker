@@ -13,15 +13,15 @@ class ApplicationController < Sinatra::Base
     erb :'/index'
   end
 
-  def self.current_user
-    Ranger.find(session[:user_id])
-  end
+  helpers do
+    def logged_in?
+      !!session[:user_id]
+    end
 
-  def self.is_logged_in?
-    if session[:user_id] != nil
-      true
-    else
-      false
+    def current_user
+      unless session[:user_id] == nil
+        Ranger.find(session[:user_id])
+      end
     end
   end
 
