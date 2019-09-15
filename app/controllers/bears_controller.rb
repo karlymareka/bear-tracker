@@ -33,4 +33,13 @@ class BearsController < ApplicationController
    end
  end
 
+ get '/bears/:id/edit' do
+   @bear = Bear.find(params[:id])
+   if logged_in? && current_user.id == @bear.ranger_id
+     erb :'/bears/edit'
+   else
+     erb :'/bears/error'
+   end
+ end
+
 end
