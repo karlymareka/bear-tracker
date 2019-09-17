@@ -4,3 +4,8 @@ Sex: <%= @bear.sex %>
 Health: <%= @bear.health_status %>
 Habituation: <%= @bear.habituation_status %>
 Tagged by Ranger <%= @ranger.name %>
+
+<form method="post" action="/bears/<%= @bear.id %>">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete Bear">
+</form>

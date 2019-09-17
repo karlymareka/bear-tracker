@@ -42,4 +42,24 @@ class BearsController < ApplicationController
    end
  end
 
+ post '/bears/:id' do
+  binding.pry 
+  @bear = Bear.find(params[:id])
+  @bear.name = params[:name]
+  @bear.sex = params[:sex]
+  @bear.age = params[:age]
+  @bear.health_status = params[:health_status]
+  @bear.habituation_status = params[:habituation_status]
+  @bear.ranger_id = params[:ranger_id]
+  @bear.save
+  redirect to "/bears/#{@bear.id}"
+end
+
+
+delete '/bears/:id' do
+  @bear = Bear.find(params[:id])
+  @bear.destroy
+  redirect to '/bears'
+end
+
 end
