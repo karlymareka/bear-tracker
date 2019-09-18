@@ -6,13 +6,9 @@
       <p>
         <b>Bear Name: </b> <%=bear.name%>
       <br>
-        <b>Bear Location: </b>
-        <% if bear.ranger_id != nil
-            ranger = Ranger.find(bear.ranger_id) %>
-            <%= Park.find(ranger.park_id).name %>
-        <% end %>
-      <br>
         <b>Bear ID: </b> <%= bear.id %>
+      <br>
+      <a href="/bears/<%= bear.id %>"> More Info</a>
       </p>
     <% end %>
   <% end %>

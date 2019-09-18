@@ -1,8 +1,8 @@
 class BearsController < ApplicationController
 
   get '/bears' do
-      @bears = Bear.all
-      erb :'/bears/index'
+    @bears = Bear.all
+    erb :'/bears/index'
   end
 
   get '/bears/new' do
@@ -42,7 +42,7 @@ class BearsController < ApplicationController
    end
  end
 
- post '/bears/:id' do
+ patch '/bears/:id' do
   binding.pry 
   @bear = Bear.find(params[:id])
   @bear.name = params[:name]
@@ -57,9 +57,9 @@ end
 
 
 delete '/bears/:id' do
-  @bear = Bear.find(params[:id])
-  @bear.destroy
-  redirect to '/bears'
+  binding.pry
+  Bear.find(params[:id]).delete
+  redirect "/bears"
 end
 
 end

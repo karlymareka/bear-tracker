@@ -1,11 +1,22 @@
-Name: <%= @bear.name %>
-Age: <%= @bear.age %>
-Sex: <%= @bear.sex %>
-Health: <%= @bear.health_status %>
-Habituation: <%= @bear.habituation_status %>
-Tagged by Ranger <%= @ranger.name %>
+<h1> About This Bear </h1>
+<p>Name: <%= @bear.name %> </p>
+<p>Location:
+  <% if @bear.ranger_id != nil
+      ranger = Ranger.find(@bear.ranger_id) %>
+      <%= Park.find(ranger.park_id).name %>
+  <% end %>
+<p>Age: <%= @bear.age %> </p>
+<p>Sex: <%= @bear.sex %> </p>
+<p>Health: <%= @bear.health_status %> </p>
+<p>Habituation: <%= @bear.habituation_status %> </p>
+<p>Tagged by Ranger: <%= @ranger.name %> </p>
+
+<p>
+<a href="/bears/<%= @bear.id %>/edit"> Edit Bear</a>
 
 <form method="post" action="/bears/<%= @bear.id %>">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
   <input type="submit" value="Delete Bear">
 </form>
+
+</p>
