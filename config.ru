@@ -1,9 +1,9 @@
 
 require './config/environment'
 
-require_relative 'app/controllers/bears_controller'
-require_relative 'app/controllers/parks_controller'
-require_relative 'app/controllers/rangers_controller'
+require './app/controllers/bears_controller'
+require './app/controllers/parks_controller'
+require './app/controllers/rangers_controller'
 use Rack::MethodOverride
 
 use BearsController

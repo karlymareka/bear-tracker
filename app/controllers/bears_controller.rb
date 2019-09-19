@@ -50,11 +50,10 @@ class BearsController < ApplicationController
     @bear.health_status = params[:health_status]
     @bear.habituation_status = params[:habituation_status]
     @bear.save
-    redirect '/bears/#{@bear.id}'
+    redirect '/bears'
   end
 
   delete '/bears/:id' do
-    binding.pry
     Bear.find(params[:id]).delete
     redirect '/bears'
   end
