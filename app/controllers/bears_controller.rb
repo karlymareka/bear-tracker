@@ -33,33 +33,31 @@ class BearsController < ApplicationController
    end
  end
 
- get '/bears/:id/edit' do
-   @bear = Bear.find(params[:id])
-   if logged_in? && current_user.id == @bear.ranger_id
-     erb :'/bears/edit'
-   else
-     erb :'/bears/error'
+   get '/bears/:id/edit' do
+     @bear = Bear.find(params[:id])
+     if logged_in? && current_user.id == @bear.ranger_id
+       erb :'/bears/edit'
+     else
+       erb :'/bears/error'
+     end
    end
- end
 
- patch '/bears/:id' do
-  binding.pry 
-  @bear = Bear.find(params[:id])
-  @bear.name = params[:name]
-  @bear.sex = params[:sex]
-  @bear.age = params[:age]
-  @bear.health_status = params[:health_status]
-  @bear.habituation_status = params[:habituation_status]
-  @bear.ranger_id = params[:ranger_id]
-  @bear.save
-  redirect to "/bears/#{@bear.id}"
-end
+  patch '/bears/:id' do
+    binding.pry
+    @bear = Bear.find(params[:id])
+    @bear.name = params[:name]
+    @bear.sex = params[:sex]
+    @bear.age = params[:age]
+    @bear.health_status = params[:health_status]
+    @bear.habituation_status = params[:habituation_status]
+    @bear.ranger_id = params[:ranger_id]
+    @bear.save
+    redirect '/bears/#{@bear.id}'
+  end
 
-
-delete '/bears/:id' do
-  binding.pry
-  Bear.find(params[:id]).delete
-  redirect "/bears"
-end
-
+  delete '/bears/:id' do
+    binding.pry
+    Bear.find(params[:id]).delete
+    redirect '/bears'
+  end
 end

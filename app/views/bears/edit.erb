@@ -1,7 +1,7 @@
 <h1>Edit <%= @bear.name %></h1>
 
 <form action="/bears/<%= @bear.id %>" method="POST"> 
-  <input type="hidden" name="_method" value="PATCH">
+  <input id="hidden" type="hidden" name="_method" value="PATCH">
 
   <h2>
     <label for="name">Name:</label> 
