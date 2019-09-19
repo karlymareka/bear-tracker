@@ -43,14 +43,12 @@ class BearsController < ApplicationController
    end
 
   patch '/bears/:id' do
-    binding.pry
     @bear = Bear.find(params[:id])
     @bear.name = params[:name]
     @bear.sex = params[:sex]
     @bear.age = params[:age]
     @bear.health_status = params[:health_status]
     @bear.habituation_status = params[:habituation_status]
-    @bear.ranger_id = params[:ranger_id]
     @bear.save
     redirect '/bears/#{@bear.id}'
   end
