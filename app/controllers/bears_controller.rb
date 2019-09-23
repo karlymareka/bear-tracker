@@ -54,7 +54,13 @@ class BearsController < ApplicationController
   end
 
   delete '/bears/:id' do
-    Bear.find(params[:id]).delete
-    redirect '/bears'
+    @bear = Bear.find(params[:id])
+    if logged_in? && current_user.id == @bear.ranger_id
+      @bear.delete
+      redirect '/bears'
+    else
+      redirect '/login'
+    end
   end
+  
 end
