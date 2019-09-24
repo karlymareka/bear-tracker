@@ -1,0 +1,12 @@
+body {
+  font-family: 'Nunito', sans-serif;
+  color: red;
+}
+
+p {
+  color: red;
+}
+
+* {
+  color: blue;
+}
