@@ -7,3 +7,8 @@ body {
 h1,h2,h3 {
   color: #7f311c;
 }
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}

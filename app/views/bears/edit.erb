@@ -10,6 +10,22 @@
   </h2>
 
   <h2>
+    <label> Species: </label>
+  </h2>
+  <p>
+    <input type="radio" name='species' value='black'
+      <% if @bear.species == "black" %>
+        checked
+      <% end %>
+      > North American Black Bear: Ursus Americanus <br>
+    <input type="radio" name='species' value='brown'
+      <% if @bear.species == "brown" %>
+        checked
+      <% end %>
+      > Brown Bear: Ursus Arctos  <br>
+  </p>
+
+  <h2>
     <label> Sex: </label>
   </h2>
   <p>

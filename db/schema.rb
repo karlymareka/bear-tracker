@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 3) do
 
   create_table "bears", force: :cascade do |t|
     t.string "name"
+    t.string "species"
     t.string "sex"
     t.integer "age"
     t.string "health_status"
