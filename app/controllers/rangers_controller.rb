@@ -42,8 +42,10 @@ class RangersController < ApplicationController
   get '/logout' do
     if logged_in?
       session.clear
-    end
+      erb :'/rangers/logout'
+    else
       redirect '/login'
+    end
   end
 
 end

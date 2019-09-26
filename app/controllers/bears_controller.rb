@@ -59,8 +59,8 @@ class BearsController < ApplicationController
       @bear.delete
       redirect '/bears'
     else
-      redirect '/login'
+      erb :'/bears/error'
     end
   end
-  
+
 end
