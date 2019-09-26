@@ -1,8 +1,12 @@
 class BearsController < ApplicationController
 
   get '/bears' do
-    @bears = Bear.all
-    erb :'/bears/index'
+    if logged_in?
+      @bears = Bear.all
+      erb :'/bears/index'
+    else
+      redirect '/login'
+    end 
   end
 
   get '/bears/new' do
@@ -15,6 +19,7 @@ class BearsController < ApplicationController
 
   post '/bears' do
     @bear = Bear.create(:name => params[:name],
+      :species => params[:species],
       :sex => params[:sex],
       :age => params[:age],
       :health_status => params[:health_status],
@@ -45,6 +50,7 @@ class BearsController < ApplicationController
   patch '/bears/:id' do
     @bear = Bear.find(params[:id])
     @bear.name = params[:name]
+    @bear.species = params[:species]
     @bear.sex = params[:sex]
     @bear.age = params[:age]
     @bear.health_status = params[:health_status]
