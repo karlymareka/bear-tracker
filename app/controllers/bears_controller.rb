@@ -49,7 +49,7 @@ class BearsController < ApplicationController
 
   patch '/bears/:id' do
     @bear = Bear.find(params[:id])
-    @bear.name = params[:name]
+    @bear.name = params[:same]
     @bear.species = params[:species]
     @bear.sex = params[:sex]
     @bear.age = params[:age]

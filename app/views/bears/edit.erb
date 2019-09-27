@@ -3,7 +3,7 @@
   <input id="hidden" type="hidden" name="_method" value="PATCH">
   <h2>
     <label for="name">Name:</label> 
-    <input type="text" name="name" id="name"
+    <input type="text" name="Name" id="name"
     value="<%= @bear.name %>">
   </h2>
 
@@ -27,18 +27,18 @@
     <label> Sex: </label>
   </h2>
   <p>
-    <input type="radio" name='sex' value='male'
-      <% if @bear.sex == "male" %>
+    <input type="radio" name='sex' value='Male'
+      <% if @bear.sex == "Male" %>
         checked
       <% end %>
     > Male <br>
-    <input type="radio" name='sex' value='female without cubs'
-      <% if @bear.sex == "female without cubs" %>
+    <input type="radio" name='sex' value='Female without cubs'
+      <% if @bear.sex == "Female without cubs" %>
         checked
       <% end %>
     > Female without cubs <br>
-    <input type="radio" name='sex' value='female with cub(s)'
-      <% if @bear.sex == "female with cub(s)" %>
+    <input type="radio" name='sex' value='Female with cub(s)'
+      <% if @bear.sex == "Female with cub(s)" %>
       checked
       <% end %>
     > Female with cub(s) <br>
@@ -52,20 +52,20 @@
   </h2>
   <p>
     <input type="radio" name="health_status" id="healthy"
-      value="healthy"
-      <% if @bear.health_status == "healthy" %>
+      value="Healthy"
+      <% if @bear.health_status == "Healthy" %>
       checked
       <% end %>
     > Healthy <br>
-    <input type="radio" name="health_status" id="fair"
-      value="fair"
-      <% if @bear.health_status == "fair" %>
+    <input type="radio" name="Health_status" id="fair"
+      value="Fair"
+      <% if @bear.health_status == "Fair" %>
       checked
       <% end %>
     > Fair <br>
     <input type="radio" name="health_status" id="sick_underweight"
-      value="sick_underweight"
-      <% if @bear.health_status == "sick_underweight" %>
+      value="Sick_underweight"
+      <% if @bear.health_status == "Sick_underweight" %>
       checked
       <% end %>
     > Sick or Underweight
@@ -76,14 +76,14 @@
   </h2>
   <p>
     <input type="radio" name="habituation_status" id="no"
-      value="no"
-      <% if @bear.habituation_status == "no" %>
+      value="No"
+      <% if @bear.habituation_status == "No" %>
       checked
       <% end %>
     > No signs of habituation to people <br>
     <input type="radio" name="habituation_status" id="yes"
-      value="yes"
-      <% if @bear.habituation_status == "yes" %>
+      value="Yes"
+      <% if @bear.habituation_status == "Yes" %>
       checked
       <% end %>
     > Signs of habituation or aggression to people <br>

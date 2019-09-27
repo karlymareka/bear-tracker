@@ -1,4 +1,5 @@
 require './config/environment'
+require 'sinatra/flash'
 
 class ApplicationController < Sinatra::Base
 
@@ -15,7 +16,7 @@ class ApplicationController < Sinatra::Base
       redirect '/bears'
     else
       erb :'/index'
-    end 
+    end
   end
 
   helpers do
