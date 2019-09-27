@@ -1,6 +1,9 @@
 <h1> National Parks: </h1>
+
 <% @parks.each.with_index(1) do |park, index| %>
-  <p> <%= index %>. <%= park.name %>, <%= park.state %> </p>
+  <p> <%= index %>. <%= park.name %>, <%= park.state %>
+  <br> Number of Tagged Bears:
+        <%= park.bears.count %></p>
 <% end %>
 
 <p>
