@@ -25,7 +25,12 @@ class BearsController < ApplicationController
       :health_status => params[:health_status],
       :habituation_status => params[:habituation_status],
       :ranger_id => session[:user_id])
-    redirect '/bears'
+    if @bear.valid?
+      redirect '/bears'
+    else
+      flash[:message] = "Error: All fields except age must be completed to create a bear."
+      redirect to '/bears/new'
+    end
   end
 
   get '/bears/:id' do
