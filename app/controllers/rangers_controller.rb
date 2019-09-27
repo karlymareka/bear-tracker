@@ -13,7 +13,7 @@ class RangersController < ApplicationController
   post '/signup' do
     @ranger = Ranger.create(:name => params[:name],
       :username => params[:username],
-      :password_digest => params[:password])
+      :password => params[:password])
     @park = Park.find_by(name: params[:park])
     @ranger.park_id = @park.id
     @ranger.save

@@ -2,10 +2,9 @@
 <p>Name: <%= @bear.name %> </p>
 <p>Species: <%= @bear.species %> </p>
 <p>Location:
-  <% if @bear.ranger_id != nil
-      ranger = Ranger.find(@bear.ranger_id) %>
-      <%= Park.find(ranger.park_id).name %>
-  <% end %>
+      <%= @bear.ranger.park.name %>
+</p>
+
 <p>Age: <%= @bear.age %> </p>
 <p>Sex: <%= @bear.sex %> </p>
 <p>Health: <%= @bear.health_status %> </p>

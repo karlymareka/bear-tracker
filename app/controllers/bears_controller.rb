@@ -6,7 +6,7 @@ class BearsController < ApplicationController
       erb :'/bears/index'
     else
       redirect '/login'
-    end 
+    end
   end
 
   get '/bears/new' do
