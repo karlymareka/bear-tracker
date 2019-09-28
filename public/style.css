@@ -1,7 +1,16 @@
 body {
   font-family: 'Nunito', sans-serif;
+  display: inline-block;
+  width: 50%;
+  float: left;
+}
+
+p {
   color: #004c63;
-  text-align: center;
+}
+
+img {
+  float: right;
 }
 
 h1,h2,h3 {
@@ -11,4 +20,9 @@ h1,h2,h3 {
 .topnav a:hover {
   background-color: #ddd;
   color: black;
+}
+
+div {
+  color: red;
+  font-weight: bold;
 }

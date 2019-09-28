@@ -1,5 +1,8 @@
 class BearsController < ApplicationController
 
+  # use Rack::Flash
+  # set :method_override, true
+
   get '/bears' do
     if logged_in?
       @bears = Bear.all
