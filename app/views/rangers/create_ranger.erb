@@ -1,3 +1,10 @@
+<br>
+<div style="flash red">
+  <% if flash.has?(:message) %>
+    <%= flash[:message] %>
+  <% end %>
+</div>
+
 <form action="/signup" method="post">
 
   <h2>Name: <input id="name" type="text" name='name'></h2>

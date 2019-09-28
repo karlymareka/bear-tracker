@@ -1,16 +1,7 @@
 body {
   font-family: 'Nunito', sans-serif;
-  display: inline-block;
-  width: 50%;
-  float: left;
-}
-
-p {
   color: #004c63;
-}
-
-img {
-  float: right;
+  text-align: left
 }
 
 h1,h2,h3 {
