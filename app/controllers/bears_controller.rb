@@ -26,6 +26,8 @@ class BearsController < ApplicationController
       :habituation_status => params[:habituation_status],
       :ranger_id => session[:user_id])
     if @bear.valid?
+      @bear.park_id = Ranger.find(@bear.ranger_id).park.id
+      @bear.save 
       redirect '/bears'
     else
       flash[:message] = "Error: All fields except age must be completed to create a bear."

@@ -3,11 +3,7 @@
 <% @parks.each.with_index(1) do |park, index| %>
   <p> <%= index %>. <%= park.name %>, <%= park.state %>
   <br> Number of Tagged Bears:
-    <% bear_count = 0
-    park.rangers.each do |ranger|
-      bear_count += ranger.bears.count
-    end %>
-    <%= bear_count %>
+    <%= park.bears.count %>
   </p>
 <% end %>
 
