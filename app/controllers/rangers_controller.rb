@@ -40,7 +40,8 @@ class RangersController < ApplicationController
       session[:user_id] = @ranger.id
       redirect to '/bears'
     else
-     redirect to '/login'
+      flash[:message] = "Error: Username and/or password incorrect."
+      erb :'/rangers/login'
     end
   end
 
