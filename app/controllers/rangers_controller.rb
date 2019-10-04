@@ -36,7 +36,7 @@ class RangersController < ApplicationController
 
   post '/login' do
     @ranger = Ranger.find_by(username: params[:username])
-    if @ranger
+    if @ranger && @ranger.authenticate(params[:password])
       session[:user_id] = @ranger.id
       redirect to '/bears'
     else
