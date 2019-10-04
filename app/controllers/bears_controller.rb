@@ -27,7 +27,7 @@ class BearsController < ApplicationController
       :ranger_id => session[:user_id])
     if @bear.valid?
       @bear.park_id = Ranger.find(@bear.ranger_id).park.id
-      @bear.save 
+      @bear.save
       redirect '/bears'
     else
       flash[:message] = "Error: All fields except age must be completed to create a bear."
@@ -50,30 +50,33 @@ class BearsController < ApplicationController
      if logged_in? && current_user.id == @bear.ranger_id
        erb :'/bears/edit'
      else
-       erb :'/bears/error'
+       flash[:message] = "Error: Rangers may only edit or delete their own bears."
+       redirect '/bears'
      end
    end
 
   patch '/bears/:id' do
-    @bear = Bear.find(params[:id])
-    @bear.name = params[:same]
-    @bear.species = params[:species]
-    @bear.sex = params[:sex]
-    @bear.age = params[:age]
-    @bear.health_status = params[:health_status]
-    @bear.habituation_status = params[:habituation_status]
-    @bear.save
-    redirect '/bears'
+    if logged_in? && current_user.id == @bear.ranger_id
+      @bear = Bear.find(params[:id])
+      @bear.name = params[:same]
+      @bear.species = params[:species]
+      @bear.sex = params[:sex]
+      @bear.age = params[:age]
+      @bear.health_status = params[:health_status]
+      @bear.habituation_status = params[:habituation_status]
+      @bear.save
+      redirect '/bears'
+    end
   end
 
   delete '/bears/:id' do
     @bear = Bear.find(params[:id])
     if logged_in? && current_user.id == @bear.ranger_id
       @bear.delete
-      redirect '/bears'
     else
-      erb :'/bears/error'
+       flash[:message] = "Error: Rangers may only edit or delete their own bears."
     end
+    redirect '/bears'
   end
 
 end
