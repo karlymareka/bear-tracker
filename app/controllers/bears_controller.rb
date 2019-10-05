@@ -56,15 +56,18 @@ class BearsController < ApplicationController
    end
 
   patch '/bears/:id' do
+    @bear = Bear.find(params[:id])
     if logged_in? && current_user.id == @bear.ranger_id
-      @bear = Bear.find(params[:id])
-      @bear.name = params[:same]
+      @bear.name = params[:name]
       @bear.species = params[:species]
       @bear.sex = params[:sex]
       @bear.age = params[:age]
       @bear.health_status = params[:health_status]
       @bear.habituation_status = params[:habituation_status]
       @bear.save
+      redirect '/bears'
+    else
+      flash[:message] = "Error: Rangers may only edit or delete their own bears."
       redirect '/bears'
     end
   end
