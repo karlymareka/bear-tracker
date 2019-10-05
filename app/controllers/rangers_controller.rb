@@ -14,9 +14,9 @@ class RangersController < ApplicationController
       :username => params[:username],
       :password => params[:password])
     @park = Park.find_by(name: params[:park])
+    @ranger.park_id = @park.id
 
     if @ranger.valid?
-      @ranger.park_id = @park.id
       @ranger.save
       session[:user_id] = @ranger.id
       redirect '/bears'
