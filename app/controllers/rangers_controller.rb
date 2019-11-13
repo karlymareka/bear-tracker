@@ -14,7 +14,9 @@ class RangersController < ApplicationController
       :username => params[:username],
       :password => params[:password])
     @park = Park.find_by(name: params[:park])
-    @ranger.park_id = @park.id
+    if @park != nil
+      @ranger.park_id = @park.id
+    end 
 
     if @ranger.valid?
       @ranger.save
